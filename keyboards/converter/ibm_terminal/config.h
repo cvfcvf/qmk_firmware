@@ -45,8 +45,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #ifdef PS2_USE_USART
 /* XCK for clock line */
-#define PS2_CLOCK_PIN   D5
-#define PS2_DATA_PIN    D2
+#define PS2_CLOCK_PIN   D1
+#define PS2_DATA_PIN    D0
 
 /* synchronous, odd parity, 1-bit stop, 8-bit data, sample at falling edge */
 /* set DDR of CLOCK as input to be slave */
