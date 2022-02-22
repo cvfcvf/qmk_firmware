@@ -19,10 +19,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #pragma once
 
 #define VENDOR_ID       0xFEED
-#define PRODUCT_ID      0x6535
+#define PRODUCT_ID      0x6537
 #define DEVICE_VER      0x0100
 #define MANUFACTURER    QMK
-#define PRODUCT         IBM Terminal Keyboard
+#define PRODUCT         IBM Terminal Keyboard (INT)
 
 
 /* matrix size */
@@ -45,8 +45,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #ifdef PS2_USE_USART
 /* XCK for clock line */
-#define PS2_CLOCK_PIN   D1
-#define PS2_DATA_PIN    D0
+#define PS2_CLOCK_PIN   D5
+#define PS2_DATA_PIN    D2
 
 /* synchronous, odd parity, 1-bit stop, 8-bit data, sample at falling edge */
 /* set DDR of CLOCK as input to be slave */
