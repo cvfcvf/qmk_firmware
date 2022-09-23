@@ -57,10 +57,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_NAV1] = LAYOUT_60_iso(
     KC_GRV,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_DEL,
-    _______, _______, _______, _______, _______, _______, _______, KC_HOME, KC_UP,   KC_PGUP, _______, _______, _______,
-    _______, _______, _______, _______, KC_PGDN, KC_PGUP, _______, KC_LEFT, KC_DOWN, KC_RGHT, _______, _______, _______, _______,
-    KC_LSFT, _______, _______, _______, _______, _______, _______, _______, KC_END , KC_INS , KC_PGDN, _______, _______,
-    KC_LCTL, KC_LGUI, KC_LALT,                            _______,                            _______, _______, _______, _______),
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_HOME, KC_UP,   KC_PGUP, XXXXXXX, XXXXXXX, XXXXXXX,
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_PGDN, KC_PGUP, XXXXXXX, KC_LEFT, KC_DOWN, KC_RGHT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    KC_LSFT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_END , KC_INS , KC_PGDN, XXXXXXX, XXXXXXX,
+    KC_LCTL, KC_LGUI, KC_LALT,                            XXXXXXX,                            XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX),
 
   [_NAV2] = LAYOUT_60_iso(
     _______, KC_F13 , KC_F14 , KC_F15 , KC_F16 , KC_F17 , KC_F18 , KC_F19 , KC_F20 , KC_F21 , KC_F22 , KC_F23 , KC_F24 , KC_DEL,
