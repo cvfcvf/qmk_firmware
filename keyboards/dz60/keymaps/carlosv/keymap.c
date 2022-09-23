@@ -60,13 +60,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_HOME, KC_UP,   KC_PGUP, XXXXXXX, XXXXXXX, XXXXXXX,
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_PGDN, KC_PGUP, XXXXXXX, KC_LEFT, KC_DOWN, KC_RGHT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
     KC_LSFT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_END , KC_INS , KC_PGDN, XXXXXXX, XXXXXXX,
-    KC_LCTL, KC_LGUI, KC_LALT,                            XXXXXXX,                            XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX),
+    KC_LCTL, KC_LGUI, KC_LALT,                            XXXXXXX,                            KC_RALT, XXXXXXX, XXXXXXX, XXXXXXX),
 
   [_NAV2] = LAYOUT_60_iso(
-    _______, KC_F13 , KC_F14 , KC_F15 , KC_F16 , KC_F17 , KC_F18 , KC_F19 , KC_F20 , KC_F21 , KC_F22 , KC_F23 , KC_F24 , KC_DEL,
-    _______, _______, _______, _______, _______, _______, _______, KC_INS,  KC_PGUP, KC_END,  _______, _______, _______,
-    _______, _______, _______, _______, _______, _______, _______, KC_LEFT, KC_PGDN, KC_RGHT, _______, _______, _______, _______,
-    KC_LSFT, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+    KC_GRV,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_PSLS, KC_P7,   KC_P8,   KC_P9,   XXXXXXX, XXXXXXX, XXXXXXX,  KC_DEL,
+    _______, _______, _______, _______, _______, _______, KC_PAST, KC_P4 ,  KC_P5  , KC_P6 ,  _______, _______, _______,
+    _______, _______, _______, _______, _______, _______, KC_PMNS, KC_P1  , KC_P2  , KC_P3  , _______, _______, _______, _______,
+    KC_LSFT, _______, _______, _______, _______, _______, _______, KC_PPLS, KC_P0  , XXXXXXX, KC_PDOT, _______, _______,
     KC_LCTL, KC_LGUI, KC_LALT,                            _______,                            _______, _______, _______, _______),
 
 };
