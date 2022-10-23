@@ -24,3 +24,7 @@ SRC += custom_matrix.cpp
 DEFAULT_FOLDER = converter/usb_usb/hasu
 
 LAYOUTS = fullsize_ansi fullsize_iso
+
+# Enable Link Time Optimization
+# Macro and Function features are incompatible with LTO
+EXTRAFLAGS += -flto
