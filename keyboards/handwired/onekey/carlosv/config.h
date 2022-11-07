@@ -5,7 +5,7 @@
 #include "config_common.h"
 
 // Matrix configuration
-#define SPI_MATRIX_CHIP_SELECT_PIN GP21
+#define SPI_MATRIX_CHIP_SELECT_PIN GP17
 #define SPI_MATRIX_DIVISOR 16
 
 // Encoder
@@ -13,9 +13,9 @@
 
 // SPI Configuration
 #define SPI_DRIVER SPID0
-#define SPI_SCK_PIN GP22
-#define SPI_MOSI_PIN GP23
-#define SPI_MISO_PIN GP20
+#define SPI_SCK_PIN GP18
+#define SPI_MOSI_PIN GP16
+#define SPI_MISO_PIN GP19
 
 /*
 // EEPROM configuration
