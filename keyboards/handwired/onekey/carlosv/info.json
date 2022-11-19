@@ -1,10 +1,10 @@
 {
-    "keyboard_name": "Onekey RP2040",
+    "keyboard_name": "Onekey RP2040cvf",
     "processor": "RP2040",
     "bootloader": "rp2040",
     "matrix_pins": {
         "cols": ["GP4"],
-        "rows": ["NO_PIN"]
+        "rows": ["NO_PIN","NO_PIN","NO_PIN","NO_PIN","NO_PIN","NO_PIN","NO_PIN","NO_PIN"]
     },
     "rgblight": {
         "pin": "A1"

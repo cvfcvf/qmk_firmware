@@ -4,39 +4,23 @@
 
 #include "config_common.h"
 
+#define DEBUG_MATRIX_SCAN_RATE
+#define MATRIX_IO_DELAY 1000
+
+#define QMK_WAITING_TEST_BUSY_PIN GP8
+#define QMK_WAITING_TEST_YIELD_PIN GP9
+
+#define RP2040_BOOTLOADER_DOUBLE_TAP_RESET
+#define RP2040_BOOTLOADER_DOUBLE_TAP_RESET_LED GP25
+#define RP2040_BOOTLOADER_DOUBLE_TAP_RESET_TIMEOUT 500U
+
 // Matrix configuration
 #define SPI_MATRIX_CHIP_SELECT_PIN GP17
 #define SPI_MATRIX_DIVISOR 16
 
-// Encoder
-#define ENCODER_PUSHBUTTON_PIN GP7
-
 // SPI Configuration
 #define SPI_DRIVER SPID0
 #define SPI_SCK_PIN GP18
-#define SPI_MOSI_PIN GP16
-#define SPI_MISO_PIN GP19
+#define SPI_MOSI_PIN GP19
+#define SPI_MISO_PIN GP16
 
-/*
-// EEPROM configuration
-#define EXTERNAL_EEPROM_SPI_CLOCK_DIVISOR 8
-#define EXTERNAL_EEPROM_SPI_SLAVE_SELECT_PIN GP3
-#define EXTERNAL_FLASH_SPI_CLOCK_DIVISOR 8
-#define EXTERNAL_FLASH_SPI_SLAVE_SELECT_PIN GP2
-
-// RGB configuration
-#define RGB_DI_PIN GP13
-#define RGB_ENABLE_PIN GP6
-
-// ADC Configuration
-#define ADC_RESOLUTION ? ? ? // ADC_CFGR1_RES_12BIT // TBD when RP2040 has analog support
-#define ADC_SATURATION ? ? ? // ((1 << 12) - 1) // TBD when RP2040 has analog support
-#define ADC_CURRENT_PIN GP26
-#define ADC_VOLTAGE_PIN GP27
-
-// Display Configuration
-#define OLED_CS_PIN GP16
-#define OLED_DC_PIN GP17
-#define OLED_RST_PIN GP18
-
-*/
