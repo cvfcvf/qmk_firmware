@@ -49,7 +49,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /*     print("Probando1...\n"); */
 /* } */
 
-void SPIWrite(uint8_t spiRegister, uint8_t value){
+void mcp_write(uint8_t device, uint8_t spiRegister, uint8_t value){
   /* This function sends data to the chip */
   /* It's a 5 step process */
   /* 1) Pull the Slave/Chip select LOW */
@@ -57,7 +57,7 @@ void SPIWrite(uint8_t spiRegister, uint8_t value){
   
   /* 2) Send the chip's address to the chip */
   //spi_write(CHIP); // con este funciona
-  spi_write(0b01000000 | (0 << 1)); // y con este también
+  spi_write(0b01000000 | (device << 1)); // y con este también
 
   /* 3) Send the register to the chip */
   spi_write(spiRegister);
@@ -93,9 +93,9 @@ void matrix_init_custom(void) {
 
   wait_ms(20);
   
-  /* SPIWrite(IO_DIR_REG,0x00); // Set all pins to OUTPUT */
-  SPIWrite(IO_DIR_REG,0xff); // Set all pins to INPUT
-  SPIWrite(GPIO_REG,0x00);   // Set all pins LOW
+  /* mcp_write(IO_DIR_REG,0x00); // Set all pins to OUTPUT */
+  mcp_write(0,IO_DIR_REG,0xff); // Set all pins to INPUT
+  mcp_write(0,GPIO_REG,0x00);   // Set all pins LOW
 }
 
 /* static matrix_row_t read_cols(uint8_t row) { */
@@ -107,11 +107,11 @@ bool matrix_scan_custom(matrix_row_t current_matrix[]) {
 
     /* // Set pin 1 HIGH */
     /* print("Encendiendo\n"); */
-    /* SPIWrite(GPIO_REG,0x05); */
+    /* mcp_write(0,GPIO_REG,0x05); */
     /* wait_ms(1000); */
     /* // Set pin 1 LOW */
     /* print("Apagando\n"); */
-    /* SPIWrite(GPIO_REG,0x00); */
+    /* mcp_write(0,GPIO_REG,0x00); */
     /* wait_ms(1000); */
 
     matrix_row_t read_result =  mcp_read(0,GPIO_REG);
