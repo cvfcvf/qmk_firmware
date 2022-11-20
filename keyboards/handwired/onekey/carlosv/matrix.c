@@ -68,6 +68,18 @@ void SPIWrite(uint8_t spiRegister, uint8_t value){
   writePinHigh(SPI_MATRIX_CHIP_SELECT_PIN);
 }
 
+matrix_row_t mcp_read(uint8_t device, uint8_t addr){
+  writePinLow(SPI_MATRIX_CHIP_SELECT_PIN);
+
+  spi_write(0b01000001 | ((device) << 1));
+  spi_write(addr);
+
+  matrix_row_t resultado = spi_read();
+
+  writePinHigh(SPI_MATRIX_CHIP_SELECT_PIN);
+
+  return resultado;
+}
 
 void matrix_init_custom(void) {
   // SPI Matrix
@@ -82,49 +94,47 @@ void matrix_init_custom(void) {
   wait_ms(20);
   
   /* SPIWrite(IO_DIR_REG,0x00); // Set all pins to OUTPUT */
-  SPIWrite(IO_DIR_REG,0x00); // Set all pins to OUTPUT
+  SPIWrite(IO_DIR_REG,0xff); // Set all pins to INPUT
   SPIWrite(GPIO_REG,0x00);   // Set all pins LOW
 }
+
+/* static matrix_row_t read_cols(uint8_t row) { */
+/*     return 0xff ^ mcp_read(0, GPIO_REG); */
+/* } */
 
 bool matrix_scan_custom(matrix_row_t current_matrix[]) {
     bool changed = false;
 
-    // Set pin 1 HIGH
-    print("Encendiendo\n");
-    SPIWrite(GPIO_REG,0x01);
-    wait_ms(1000);
-    // Set pin 1 LOW
-    print("Apagando\n");
-    SPIWrite(GPIO_REG,0x00);
-    wait_ms(1000);
+    /* // Set pin 1 HIGH */
+    /* print("Encendiendo\n"); */
+    /* SPIWrite(GPIO_REG,0x05); */
+    /* wait_ms(1000); */
+    /* // Set pin 1 LOW */
+    /* print("Apagando\n"); */
+    /* SPIWrite(GPIO_REG,0x00); */
+    /* wait_ms(1000); */
+
+    matrix_row_t read_result =  mcp_read(0,GPIO_REG);
     
     /* //static matrix_row_t temp_matrix[MATRIX_ROWS] = {0}; */
     /* static matrix_row_t current_row_value = 0; */
     /* //int i = 0; */
 
     /* // Read from SPI the matrix */
-    /* writePinLow(SPI_MATRIX_CHIP_SELECT_PIN); */
-
-    /* //print("Escribe y espera...\n"); */
-    /* //spi_write(0b00000011); */
-    /* wait_ms(20); */
-    /* //matrix_output_select_delay(); */
-
-    /* writePinHigh(SPI_MATRIX_CHIP_SELECT_PIN); */
 
     /* spi_status_t read_result = spi_read(); */
     /* /\* spi_status_t read_result = *\/ */
     /* /\*   spi_receive((uint8_t*)temp_matrix, MATRIX_ROWS * sizeof(matrix_row_t)); *\/ */
 
 
-    /* if (read_result >= 0) { */
-    /*   /\* only if SPI read successful: populate the matrix row with the */
-    /* 	 state of the 8 consecutive column bits *\/ */
-    /*   //current_row_value |= ((matrix_row_t)read_result << col_index); */
-    /*   uprintf("Parece que lee algo...%i\n",(uint8_t)read_result); */
-    /*   current_row_value |= ((matrix_row_t)read_result << 0); */
-    /*   //uprintf("Contenido de current_row_value, %d\n",(uint8_t)current_row_value); */
-    /* } */
+    if (read_result >= 0) {
+      /* only if SPI read successful: populate the matrix row with the
+    	 state of the 8 consecutive column bits */
+      //current_row_value |= ((matrix_row_t)read_result << col_index);
+      uprintf("Parece que lee algo...%i\n",(uint8_t)read_result);
+      //current_row_value |= ((matrix_row_t)read_result << 0);
+      //uprintf("Contenido de current_row_value, %d\n",(uint8_t)current_row_value);
+    }
     
     //writePinHigh(SPI_MATRIX_CHIP_SELECT_PIN);
     //spi_stop();
