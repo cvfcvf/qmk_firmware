@@ -30,6 +30,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define CAPSgui LGUI_T(KC_CAPS)
 #define CAPSsym1 LT(SYM1,KC_CAPS)
 
+#define CTLEFT LCTL(KC_LEFT)
+#define CTRGHT LCTL(KC_RGHT)
+
 // Alias para las teclas de símbolos
 
 /* #undef KC_LPRN */
@@ -99,15 +102,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ESCmed,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,   KC_Y,   KC_U,   KC_I,    KC_O,    KC_P,    KC_LBRC, KC_RBRC,          KC_BSLS,     KC_DEL,  KC_END,  KC_PGDN,    KC_P7,   KC_P8,   KC_P9,   KC_PPLS,    KC_MENU, KC_UNDO,
     TABsym,  HR_A,    HR_S,    HR_D,    HR_F,    KC_G,   KC_H,   HR_J,   HR_K,    HR_L,    HR_SCLN, KC_QUOT,          KC_NUHS, KC_ENT,                                    KC_P4,   KC_P5,   KC_P6,   KC_PCMM,    KC_SLCT, KC_COPY,
     TD(TD_LSFT_CAPS), KC_NUBS, KC_Z,    KC_X,    KC_C,   KC_V,   KC_B,   KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,          KC_RO,   KC_RSFT,              KC_UP,               KC_P1,   KC_P2,   KC_P3,   KC_PEQL,    KC_EXEC, KC_PSTE,
-    TD(TD_LCTL_INS), KC_LGUI, KC_LALT, KC_MHEN, KC_HANJ,         SPC_NAV,        KC_HAEN, KC_HENK, KC_KANA, KC_RALT, KC_RGUI, MNUmed,  KC_RCTL,     KC_LEFT, KC_DOWN, KC_RGHT,    KC_P0,            KC_PDOT, KC_PENT,    KC_FIND, KC_CUT
+    TD(TD_LCTL_INS),  KC_LGUI, KC_LALT, KC_MHEN, KC_HANJ,         SPC_NAV,        KC_HAEN, KC_HENK, KC_KANA, KC_RALT, KC_RGUI, MNUmed,  KC_RCTL,     KC_LEFT, KC_DOWN, KC_RGHT,    KC_P0,            KC_PDOT, KC_PENT,    KC_FIND, KC_CUT
     ),
     [_NAV] = LAYOUT_all(
                       ______,  ______,  ______, ______, ______,  ______,  ______, ______,  ______, ______, ______, ______,
     RESET ,           ______,  ______,  ______, ______, ______,  ______,  ______, ______,  ______, ______, ______, ______,             ______,______,______,    ______,______,______,______,    ______,
     ______,  ______,  ______,  ______,  ______, ______, ______,  ______,  ______, ______,  ______, ______, ______, ______, ______,     ______,______,______,    ______,______,______,______,    ______,______,
-    ______,  ______,  ______,  ______,  ______, ______, KC_PGUP, KC_HOME,KC_UP  , KC_END,  ______, ______, ______,         ______,     ______,______,______,    ______,______,______,______,    ______,______,
+    ______,  ______,  ______,  ______,  ______, ______, KC_PGUP, CTLEFT , KC_UP , CTRGHT,  ______, ______, ______,         ______,     ______,______,______,    ______,______,______,______,    ______,______,
     KC_LGUI, ______,  ______,  ______,  ______, ______, KC_PGDN, KC_LEFT,KC_DOWN,KC_RGHT,  ______, ______,         ______, ______,                              ______,______,______,______,    ______,______,
-    ______,  ______,  ______,  ______,  ______, ______, ______,  ______,  ______, ______,  ______, ______,         ______, ______,            ______,           ______,______,______,______,    ______,______,
+    ______,  ______,  ______,  ______,  ______, ______, ______, ______,  KC_HOME, ______,  KC_END, ______,         ______, ______,            ______,           ______,______,______,______,    ______,______,
     ______,  ______,  ______,  ______,  ______,         ______,           ______, ______,  ______, ______, ______, ______, ______,     ______,______,______,    ______,       ______,______,    ______,______
     ),
 
