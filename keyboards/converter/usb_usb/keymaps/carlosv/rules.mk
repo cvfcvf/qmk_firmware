@@ -18,6 +18,7 @@ RGBLIGHT_ENABLE = no        # Enable keyboard RGB underglow
 AUDIO_ENABLE = no           # Audio output
 USB_HID_ENABLE = yes
 CUSTOM_MATRIX = yes
+TAP_DANCE_ENABLE = yes	    # Soporte para TAP DANCE
 
 SRC += custom_matrix.cpp
 
