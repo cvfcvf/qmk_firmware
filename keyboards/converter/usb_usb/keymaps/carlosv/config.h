@@ -26,3 +26,6 @@
 
 //#define COMBO_COUNT 2  // Number of defined combos
 //#define COMBO_TERM 20  // Delay for combo keys to be chained together
+
+#define LED_CAPS_LOCK_PIN B0
+#define LED_PIN_ON_STATE 0
