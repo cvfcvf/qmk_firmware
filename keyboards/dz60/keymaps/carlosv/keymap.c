@@ -3,8 +3,8 @@
 
 // Alias personales
 
-#define CAPS_NUM LT(_NAV2,KC_CAPS)
-#define SPC_NAV LT(_NAV1,KC_SPC)
+#define CAPS_NUM LT(_NUM,KC_CAPS)
+#define SPC_NAV LT(_NAV,KC_SPC)
 
 // Tap Dance declarations
 enum {
@@ -28,8 +28,8 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 enum _layer {
 	     _BASE,
 	     _MEDIA,
-	     _NAV1,
-	     _NAV2
+	     _NAV,
+	     _NUM
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -51,8 +51,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TAB,   KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,            KC_LBRC,          KC_RBRC,
     CAPS_NUM, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    TD(TD_ENiE_INS), KC_QUOT,          KC_NUHS,    KC_ENT,
     KC_LSFT,  KC_NUBS, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,          KC_SLSH,          KC_RSFT,
-    KC_LCTL,  KC_LGUI, KC_LALT,                            SPC_NAV,                            KC_RALT,         LT(_NAV2,KC_APP), MO(_MEDIA), KC_RCTL),
+    KC_LCTL,  KC_LGUI, KC_LALT,                            SPC_NAV,                            KC_RALT,         LT(_NUM,KC_APP), MO(_MEDIA), KC_RCTL),
 
+  [_NAV] = LAYOUT_60_iso(
+    KC_GRV,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_DEL,
+    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_HOME, KC_UP,   KC_PGUP, XXXXXXX, XXXXXXX, XXXXXXX,
+    _______, XXXXXXX, XXXXXXX, XXXXXXX, KC_PGDN, KC_PGUP, XXXXXXX, KC_LEFT, KC_DOWN, KC_RGHT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_END , KC_INS , KC_PGDN, XXXXXXX, XXXXXXX,
+    _______, _______, _______,                            XXXXXXX,                            _______, XXXXXXX, XXXXXXX, _______),
+
+  [_NUM] = LAYOUT_60_iso(
+    KC_GRV,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_PSLS, KC_P7,   KC_P8,   KC_P9,   XXXXXXX, XXXXXXX, KC_DEL , KC_BSPC,
+    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_PAST, KC_P4 ,  KC_P5  , KC_P6 ,  XXXXXXX, XXXXXXX, XXXXXXX,
+    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_PMNS, KC_P1  , KC_P2  , KC_P3  , XXXXXXX, XXXXXXX, XXXXXXX, _______,
+    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_PPLS, KC_P0  , XXXXXXX, KC_PDOT, XXXXXXX, _______,
+    _______, _______, _______,                            _______,                            _______, _______, _______, _______),
 
   [_MEDIA] = LAYOUT_60_iso(
     KC_GRV,  KC_MPLY, KC_MSTP, KC_MPRV, KC_MNXT, KC_MUTE, KC_VOLD, KC_VOLU, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, QK_BOOT,
@@ -60,19 +73,5 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
     _______, XXXXXXX, XXXXXXX, XXXXXXX, BL_DEC,  BL_TOGG, BL_INC,  BL_STEP, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
     _______, _______, _______,                            XXXXXXX,                            _______, _______, _______, _______),
-
-  [_NAV1] = LAYOUT_60_iso(
-    KC_GRV,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_DEL,
-    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_HOME, KC_UP,   KC_PGUP, XXXXXXX, XXXXXXX, XXXXXXX,
-    _______, XXXXXXX, XXXXXXX, XXXXXXX, KC_PGDN, KC_PGUP, XXXXXXX, KC_LEFT, KC_DOWN, KC_RGHT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_END , KC_INS , KC_PGDN, XXXXXXX, XXXXXXX,
-    _______, _______, _______,                            XXXXXXX,                            _______, XXXXXXX, XXXXXXX, _______),
-
-  [_NAV2] = LAYOUT_60_iso(
-    KC_GRV,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_PSLS, KC_P7,   KC_P8,   KC_P9,   XXXXXXX, XXXXXXX, KC_DEL , KC_BSPC,
-    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_PAST, KC_P4 ,  KC_P5  , KC_P6 ,  XXXXXXX, XXXXXXX, XXXXXXX,
-    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_PMNS, KC_P1  , KC_P2  , KC_P3  , XXXXXXX, XXXXXXX, XXXXXXX, _______,
-    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_PPLS, KC_P0  , XXXXXXX, KC_PDOT, XXXXXXX, _______,
-    _______, _______, _______,                            _______,                            _______, _______, _______, _______),
 
 };
