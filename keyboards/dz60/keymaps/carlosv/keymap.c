@@ -3,7 +3,8 @@
 #include "keymap_spanish.h"
 // Alias personales
 
-//#define CAPS_NUM LT(_NAV2,KC_CAPS)
+#define ESC_NUM LT(_NUM,KC_ESC)
+#define ESC_MED LT(_MEDIA,KC_ESC)
 #define TABmed LT(_MEDIA,KC_TAB)
 #define TABsym LT(_SYM,KC_TAB)
 #define MNUmed LT(_MEDIA,KC_APP)
@@ -41,6 +42,8 @@ enum {
     TD_ENiE_INS,
     TD_LSFT_CAPS,
     TD_LCTL_INS,
+    TD_MENU_QWERTY,
+    TD_MENU_BASE,
 };
 
 // Tap Dance definitions
@@ -49,7 +52,9 @@ qk_tap_dance_action_t tap_dance_actions[] = {
     [TD_ESC_CAPS] = ACTION_TAP_DANCE_DOUBLE(KC_ESC, KC_CAPS),
     [TD_ENiE_INS] = ACTION_TAP_DANCE_DOUBLE(KC_SCLN, KC_INS),
     [TD_LSFT_CAPS] = ACTION_TAP_DANCE_DOUBLE(KC_LSFT, KC_CAPS),
-    [TD_LCTL_INS] = ACTION_TAP_DANCE_DOUBLE(KC_LCTL, KC_INS)
+    [TD_LCTL_INS] = ACTION_TAP_DANCE_DOUBLE(KC_LCTL, KC_INS),
+    /* [TD_MENU_QWERTY] = ACTION_TAP_DANCE_DOUBLE(KC_APP, TO(_QWERTY)), */
+    /* [TD_MENU_BASE] = ACTION_TAP_DANCE_DOUBLE(KC_APP, TO(_BASE)), */
 };
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -60,6 +65,7 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 // Layer shorthand
 enum _layer {
 	     _BASE,
+	     _QWERTY,
 	     _NAV,
 	     _SYM,
 	     _MEDIA,
@@ -81,11 +87,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * `-----------------------------------------------------------'
    */
   [_BASE] = LAYOUT_60_iso(
-    KC_ESC,   KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,            KC_MINS,          KC_EQL,     KC_BSPC,
+    ESC_MED,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,            KC_MINS,          KC_EQL,     KC_BSPC,
     TABsym,   KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,            KC_LBRC,          KC_RBRC,
     CAPS_NUM, HR_A,    HR_S,    HR_D,    HR_F,    KC_G,    KC_H,    HR_J,    HR_K,    HR_L,    HR_SCLN,         KC_QUOT,          KC_NUHS,    KC_ENT,
     LS_CAP ,  KC_NUBS, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,          KC_SLSH,          KC_RSFT,
-    LC_INS ,  KC_LGUI, KC_LALT,                            SPC_NAV,                            KC_RALT,         LT(_NUM,KC_APP), MO(_MEDIA), KC_RCTL),
+    LC_INS ,  KC_LGUI, KC_LALT,                            SPC_NAV,                            KC_RALT,         LT(_NUM,KC_APP),  DF(_QWERTY), KC_RCTL),
+
+  [_QWERTY] = LAYOUT_60_iso(
+    QK_GESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,            KC_MINS,          KC_EQL,     KC_BSPC,
+    KC_TAB,   KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,            KC_LBRC,          KC_RBRC,
+    KC_CAPS,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN,         KC_QUOT,          KC_NUHS,    KC_ENT,
+    KC_LSFT,  KC_NUBS, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,          KC_SLSH,          KC_RSFT,
+    KC_LCTL,  KC_LGUI, KC_LALT,                            KC_SPC ,                            KC_RALT,         KC_MENU,          DF(_BASE),    KC_RCTL),
 
   [_NAV] = LAYOUT_60_iso(
     KC_GRV,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_DEL,
@@ -95,7 +108,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _______, _______,                            XXXXXXX,                            _______, XXXXXXX, XXXXXXX, _______),
 
   [_SYM] = LAYOUT_60_iso(
-    KC_GRV,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______, _______, _______, XXXXXXX, XXXXXXX, KC_DEL , KC_BSPC,
+    RESET ,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______, _______, _______, XXXXXXX, XXXXXXX, KC_DEL , KC_BSPC,
     _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, ES_LBRC, ES_RBRC, _______, XXXXXXX, XXXXXXX, XXXXXXX,
     _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, ES_IQUE, ES_LPRN, ES_RPRN, ES_QUES, XXXXXXX, XXXXXXX, XXXXXXX, _______,
     _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______, ES_LCBR, ES_RCBR, XXXXXXX, XXXXXXX, _______,
