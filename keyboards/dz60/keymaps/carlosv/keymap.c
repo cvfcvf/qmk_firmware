@@ -15,11 +15,11 @@
 
 #define CTLEFT LCTL(KC_LEFT)
 #define CTRGHT LCTL(KC_RGHT)
-#define CTL_QWY TD(TD_QWERTY)
 
 // Alias para acortar los códigos de TAP DANCE
 #define LS_CAP TD(TD_LSFT_CAPS)
 #define LC_INS TD(TD_LCTL_INS)
+#define CTL_QWY TD(TD_QWERTY)
 //#define LS_CAP TD()
 
 #define CAPS_NUM LT(_NUM,KC_CAPS)
@@ -140,3 +140,48 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _______, _______,                            XXXXXXX,                            _______, _______, _______, _______),
 
 */
+uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
+    switch(keycode) {
+        case HR_A:
+        case HR_S:
+        case HR_L:
+        case HR_SCLN: 
+            return TAPPING_TERM_LARGO;
+        default:
+            return TAPPING_TERM;
+    }
+}   
+
+
+/* bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) { */
+/*     switch (keycode) { */
+/*         case LT(_FUNC,KC_ESC): */
+/*         case LT(_NUM, KC_ENTER): */
+/*         //case LT(_MACRO, KC_BSPC): */
+/*         //case LT(_SYM, KC_SPC): */
+/*         case LT(_NAV, KC_TAB ): */
+/*         case LT(_MEDIA, KC_DEL): */
+/*         case TD(LT_BSPC): */
+
+/*         // Immediately select the hold action when another key is pressed. */
+/*             return true; */
+/*         default: */
+/*             // Do not select the hold action when another key is pressed. */
+/*             return false; */
+/*     } */
+/* } */
+
+
+bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {  
+        case HR_D:
+        case HR_F:
+        case HR_J:
+        case HR_K:
+            // Immediately select the hold action when another key is tapped.
+            return true;
+        default:
+            // Do not select the hold action when another key is tapped.
+            return false;
+    }
+}
