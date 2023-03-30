@@ -85,6 +85,10 @@ enum {
     TD_BASE,
 };
 
+enum custom_keycodes {
+    MAGIT = SAFE_RANGE,
+};
+
 // Tap Dance definitions
 tap_dance_action_t tap_dance_actions[] = {
     // Tap once for Escape, twice for Caps Lock
@@ -94,6 +98,23 @@ tap_dance_action_t tap_dance_actions[] = {
     [TD_LCTL_INS] = ACTION_TAP_DANCE_DOUBLE(KC_LCTL, KC_INS),
     [TD_QWERTY] = ACTION_TAP_DANCE_LAYER_TOGGLE(KC_RCTL, _QWERTY)
 };
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+    case MAGIT:
+        if (record->event.pressed) {
+            // when keycode QMKBEST is pressed
+	  SEND_STRING(SS_LCTL("x") SS_TAP(X_G));
+        } else {
+            // when keycode QMKBEST is released
+        }
+        break;
+    }
+    return true;
+};
+
+
+
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* 0: plain Qwerty without layer switching
@@ -168,7 +189,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     XXXXXX,           XXXXXX,  XXXXXX,  XXXXXX, XXXXXX, XXXXXX,  XXXXXX,  XXXXXX, XXXXXX,  XXXXXX, XXXXXX, XXXXXX, XXXXXX,             XXXXXX,XXXXXX,XXXXXX,    XXXXXX,XXXXXX,XXXXXX,XXXXXX,    XXXXXX,
     XXXXXX,  XXXXXX,  XXXXXX,  XXXXXX,  XXXXXX, XXXXXX, XXXXXX,  XXXXXX,  XXXXXX, XXXXXX,  XXXXXX, XXXXXX, XXXXXX, XXXXXX, XXXXXX,     XXXXXX,XXXXXX,XXXXXX,    XXXXXX,XXXXXX,XXXXXX,XXXXXX,    XXXXXX,XXXXXX,
     XXXXXX,  XXXXXX,  XXXXXX,  XXXXXX,  XXXXXX, XXXXXX, XXXXXX,  XXXXXX,  XXXXXX, XXXXXX,  XXXXXX, XXXXXX, XXXXXX,         XXXXXX,     XXXXXX,XXXXXX,XXXXXX,    XXXXXX,XXXXXX,XXXXXX,XXXXXX,    XXXXXX,XXXXXX,
-    XXXXXX,  XXXXXX,  XXXXXX,  XXXXXX,  XXXXXX, XXXXXX, XXXXXX,  XXXXXX,  XXXXXX, XXXXXX,  XXXXXX, XXXXXX,         XXXXXX, XXXXXX,                              XXXXXX,XXXXXX,XXXXXX,XXXXXX,    XXXXXX,XXXXXX,
+    XXXXXX,  XXXXXX,  XXXXXX,  XXXXXX,  XXXXXX, MAGIT , XXXXXX,  XXXXXX,  XXXXXX, XXXXXX,  XXXXXX, XXXXXX,         XXXXXX, XXXXXX,                              XXXXXX,XXXXXX,XXXXXX,XXXXXX,    XXXXXX,XXXXXX,
     XXXXXX,  ______,  XXXXXX,  XXXXXX,  XXXXXX, XXXXXX, XXXXXX,  XXXXXX,  XXXXXX, XXXXXX,  XXXXXX, ______,         XXXXXX, XXXXXX,            XXXXXX,           XXXXXX,XXXXXX,XXXXXX,XXXXXX,    XXXXXX,XXXXXX,
     XXXXXX,  XXXXXX,  XXXXXX,  XXXXXX,  XXXXXX,         XXXXXX,           XXXXXX, XXXXXX,  XXXXXX, XXXXXX, XXXXXX, XXXXXX, XXXXXX,     XXXXXX,XXXXXX,XXXXXX,    XXXXXX,       XXXXXX,XXXXXX,    XXXXXX,XXXXXX
     ),
