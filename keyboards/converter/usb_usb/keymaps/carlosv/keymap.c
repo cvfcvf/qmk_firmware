@@ -19,6 +19,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 //include "simbolos_ES.h"
 #include "keymap_spanish.h"
+
+// Esto hay que corregirlo
+#define  XXXXXX KC_NO
+
 // Alias personales
 
 //#define CAPS_NUM LT(_NAV2,KC_CAPS)
@@ -34,6 +38,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define CTLEFT LCTL(KC_LEFT)
 #define CTRGHT LCTL(KC_RGHT)
 
+#define NUBSemacs LT(_EMACS,KC_NUBS)
+#define MINSemacs LT(_EMACS,KC_MINS)
 // Alias para acortar los códigos de TAP DANCE
 #define LS_CAP TD(TD_LSFT_CAPS)
 #define LC_INS TD(TD_LCTL_INS)
@@ -53,6 +59,7 @@ enum _layer {
 	     _MEDIA,
 	     _NAV,
 	     SYM1,
+	     _EMACS,
 	     //_BLANK
 };
 
@@ -113,7 +120,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,   KC_6,   KC_7,   KC_8,    KC_9,    KC_0,    KC_MINS, KC_EQL,  KC_INT3, KC_BSPC, KC_INS,  KC_HOME, KC_PGUP,    KC_NUM,  KC_PSLS, KC_PAST, KC_PMNS,    KC_STOP, KC_AGIN,
     ESCmed,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,   KC_Y,   KC_U,   KC_I,    KC_O,    KC_P,    KC_LBRC, KC_RBRC,          KC_BSLS, KC_DEL,  KC_END,  KC_PGDN,    KC_P7,   KC_P8,   KC_P9,   KC_PPLS,    KC_MENU, KC_UNDO,
     TABsym,  HR_A,    HR_S,    HR_D,    HR_F,    KC_G,   KC_H,   HR_J,   HR_K,    HR_L,    HR_SCLN, KC_QUOT,          KC_NUHS, KC_ENT,                                KC_P4,   KC_P5,   KC_P6,   KC_PCMM,    KC_SLCT, KC_COPY,
-    LS_CAP,  KC_NUBS, KC_Z,    KC_X,    KC_C,    KC_V,   KC_B,   KC_N,   KC_M,    KC_COMM, KC_DOT,  KC_SLSH,          KC_INT1, KC_RSFT,          KC_UP,               KC_P1,   KC_P2,   KC_P3,   KC_PEQL,    KC_EXEC, KC_PSTE,
+    LS_CAP,  NUBSemacs, KC_Z,  KC_X,    KC_C,    KC_V,   KC_B,   KC_N,   KC_M,    KC_COMM, KC_DOT,  MINSemacs,        KC_INT1, KC_RSFT,          KC_UP,               KC_P1,   KC_P2,   KC_P3,   KC_PEQL,    KC_EXEC, KC_PSTE,
     LC_INS,  KC_LGUI, KC_LALT, KC_INT5, KC_LNG2,         SPC_NAV,        KC_LNG1, KC_INT4, KC_INT2, KC_RALT, KC_RGUI, MNUmed,  CTL_QWY, KC_LEFT, KC_DOWN, KC_RGHT,    KC_P0,            KC_PDOT, KC_PENT,    KC_FIND, KC_CUT
     ),
 
@@ -154,6 +161,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ______,  ______,  ______,  ______,  ______, ______, ______,  KC_VOLD,KC_MUTE,KC_VOLU,  ______, ______,         ______, ______,                              ______,______,______,______,    ______,______,
     ______,  ______,  ______,  ______,  ______, ______, ______,  KC_MPRV,KC_MPLY,KC_MNXT,  ______, ______,         ______, ______,            KC_VOLU,          ______,______,______,______,    ______,______,
     ______,  ______,  ______,  ______,  ______,         ______,           ______, ______,  ______, ______, ______, ______, ______,     KC_MPRV,KC_VOLD,KC_MNXT, ______,       ______,______,    ______,______
+    ),
+
+    [_EMACS] = LAYOUT_all(
+                      XXXXXX,  XXXXXX,  XXXXXX, XXXXXX, XXXXXX,  XXXXXX,  XXXXXX, XXXXXX,  XXXXXX, XXXXXX, XXXXXX, XXXXXX,
+    XXXXXX,           XXXXXX,  XXXXXX,  XXXXXX, XXXXXX, XXXXXX,  XXXXXX,  XXXXXX, XXXXXX,  XXXXXX, XXXXXX, XXXXXX, XXXXXX,             XXXXXX,XXXXXX,XXXXXX,    XXXXXX,XXXXXX,XXXXXX,XXXXXX,    XXXXXX,
+    XXXXXX,  XXXXXX,  XXXXXX,  XXXXXX,  XXXXXX, XXXXXX, XXXXXX,  XXXXXX,  XXXXXX, XXXXXX,  XXXXXX, XXXXXX, XXXXXX, XXXXXX, XXXXXX,     XXXXXX,XXXXXX,XXXXXX,    XXXXXX,XXXXXX,XXXXXX,XXXXXX,    XXXXXX,XXXXXX,
+    XXXXXX,  XXXXXX,  XXXXXX,  XXXXXX,  XXXXXX, XXXXXX, XXXXXX,  XXXXXX,  XXXXXX, XXXXXX,  XXXXXX, XXXXXX, XXXXXX,         XXXXXX,     XXXXXX,XXXXXX,XXXXXX,    XXXXXX,XXXXXX,XXXXXX,XXXXXX,    XXXXXX,XXXXXX,
+    XXXXXX,  XXXXXX,  XXXXXX,  XXXXXX,  XXXXXX, XXXXXX, XXXXXX,  XXXXXX,  XXXXXX, XXXXXX,  XXXXXX, XXXXXX,         XXXXXX, XXXXXX,                              XXXXXX,XXXXXX,XXXXXX,XXXXXX,    XXXXXX,XXXXXX,
+    XXXXXX,  ______,  XXXXXX,  XXXXXX,  XXXXXX, XXXXXX, XXXXXX,  XXXXXX,  XXXXXX, XXXXXX,  XXXXXX, ______,         XXXXXX, XXXXXX,            XXXXXX,           XXXXXX,XXXXXX,XXXXXX,XXXXXX,    XXXXXX,XXXXXX,
+    XXXXXX,  XXXXXX,  XXXXXX,  XXXXXX,  XXXXXX,         XXXXXX,           XXXXXX, XXXXXX,  XXXXXX, XXXXXX, XXXXXX, XXXXXX, XXXXXX,     XXXXXX,XXXXXX,XXXXXX,    XXXXXX,       XXXXXX,XXXXXX,    XXXXXX,XXXXXX
     ),
 };
 
