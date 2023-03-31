@@ -39,7 +39,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define CTRGHT LCTL(KC_RGHT)
 
 #define NUBSemacs LT(_EMACS,KC_NUBS)
-#define MINSemacs LT(_EMACS,KC_MINS)
+#define MINSemacs LT(_EMACS,KC_SLSH)
 // Alias para acortar los códigos de TAP DANCE
 #define LS_CAP TD(TD_LSFT_CAPS)
 #define LC_INS TD(TD_LCTL_INS)
