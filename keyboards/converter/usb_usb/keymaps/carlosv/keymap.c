@@ -88,6 +88,9 @@ enum {
 enum custom_keycodes {
     MAGIT = SAFE_RANGE,
     ORGPDF,
+    OPEN,
+    SAVE,
+    BUFFER,
 };
 
 // Tap Dance definitions
@@ -115,6 +118,26 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       SEND_STRING(SS_LCTL("ce") SS_TAP(X_L) SS_TAP(X_P));
     }
     break;
+  case OPEN:
+    if (record->event.pressed) {
+      SEND_STRING(SS_LCTL("xf"));
+    }
+    break;
+  case SAVE:
+    if (record->event.pressed) {
+      SEND_STRING(SS_LCTL("xs"));
+    }
+    break;
+  case BUFFER:
+    if (record->event.pressed) {
+      SEND_STRING(SS_LCTL("x") SS_TAP(X_B));
+    }
+    break;
+  /* case : */
+  /*   if (record->event.pressed) { */
+  /*     SEND_STRING(); */
+  /*   } */
+  /*   break; */
   }
   return true;
 };
@@ -193,8 +216,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     XXXXXX,           XXXXXX,  XXXXXX,  XXXXXX, XXXXXX, XXXXXX,  XXXXXX,  XXXXXX, XXXXXX,  XXXXXX, XXXXXX, XXXXXX, XXXXXX,             XXXXXX,XXXXXX,XXXXXX,    XXXXXX,XXXXXX,XXXXXX,XXXXXX,    XXXXXX,
     XXXXXX,  XXXXXX,  XXXXXX,  XXXXXX,  XXXXXX, XXXXXX, XXXXXX,  XXXXXX,  XXXXXX, XXXXXX,  XXXXXX, XXXXXX, XXXXXX, XXXXXX, XXXXXX,     XXXXXX,XXXXXX,XXXXXX,    XXXXXX,XXXXXX,XXXXXX,XXXXXX,    XXXXXX,XXXXXX,
     XXXXXX,  XXXXXX,  XXXXXX,  XXXXXX,  XXXXXX, XXXXXX, XXXXXX,  XXXXXX,  XXXXXX, XXXXXX,  ORGPDF, XXXXXX, XXXXXX,         XXXXXX,     XXXXXX,XXXXXX,XXXXXX,    XXXXXX,XXXXXX,XXXXXX,XXXXXX,    XXXXXX,XXXXXX,
-    XXXXXX,  XXXXXX,  XXXXXX,  XXXXXX,  XXXXXX, MAGIT , XXXXXX,  XXXXXX,  XXXXXX, XXXXXX,  XXXXXX, XXXXXX,         XXXXXX, XXXXXX,                              XXXXXX,XXXXXX,XXXXXX,XXXXXX,    XXXXXX,XXXXXX,
-    XXXXXX,  ______,  XXXXXX,  XXXXXX,  XXXXXX, XXXXXX, XXXXXX,  XXXXXX,  XXXXXX, XXXXXX,  XXXXXX, ______,         XXXXXX, XXXXXX,            XXXXXX,           XXXXXX,XXXXXX,XXXXXX,XXXXXX,    XXXXXX,XXXXXX,
+    XXXXXX,  XXXXXX,  SAVE  ,  XXXXXX,  OPEN  , MAGIT , XXXXXX,  XXXXXX,  XXXXXX, XXXXXX,  XXXXXX, XXXXXX,         XXXXXX, XXXXXX,                              XXXXXX,XXXXXX,XXXXXX,XXXXXX,    XXXXXX,XXXXXX,
+    XXXXXX,  ______,  XXXXXX,  XXXXXX,  XXXXXX, XXXXXX, BUFFER,  XXXXXX,  XXXXXX, XXXXXX,  XXXXXX, ______,         XXXXXX, XXXXXX,            XXXXXX,           XXXXXX,XXXXXX,XXXXXX,XXXXXX,    XXXXXX,XXXXXX,
     XXXXXX,  XXXXXX,  XXXXXX,  XXXXXX,  XXXXXX,         XXXXXX,           XXXXXX, XXXXXX,  XXXXXX, XXXXXX, XXXXXX, XXXXXX, XXXXXX,     XXXXXX,XXXXXX,XXXXXX,    XXXXXX,       XXXXXX,XXXXXX,    XXXXXX,XXXXXX
     ),
 };
