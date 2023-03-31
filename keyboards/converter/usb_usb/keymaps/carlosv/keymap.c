@@ -101,24 +101,23 @@ tap_dance_action_t tap_dance_actions[] = {
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    switch (keycode) {
-    case MAGIT:
-        if (record->event.pressed) {
-            // when keycode QMKBEST is pressed
-	  SEND_STRING(SS_LCTL("x") SS_TAP(X_G));
-        } else {
-            // when keycode QMKBEST is released
-        }
-        break;
-    case ORGPDF:
-      if (record->event.pressed) {
-	SEND_STRING(SS_LCTL("ce") SS_TAP(X_L) SS_TAP(X_P));
-      }
+  switch (keycode) {
+  case MAGIT:
+    if (record->event.pressed) {
+      // when keycode QMKBEST is pressed
+      SEND_STRING(SS_LCTL("x") SS_TAP(X_G));
+    } else {
+      // when keycode QMKBEST is released
     }
-    return true;
+    break;
+  case ORGPDF:
+    if (record->event.pressed) {
+      SEND_STRING(SS_LCTL("ce") SS_TAP(X_L) SS_TAP(X_P));
+    }
+    break;
+  }
+  return true;
 };
-
-
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
