@@ -20,30 +20,31 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //include "simbolos_ES.h"
 #include "keymap_spanish.h"
 
+#include "cvfcvf.h"
 // Esto hay que corregirlo
 #define  XXXXXX KC_NO
 
-// Alias personales
+/* // Alias personales */
 
-//#define CAPS_NUM LT(_NAV2,KC_CAPS)
-#define TABmed LT(_MEDIA,KC_TAB)
-#define TABsym LT(SYM1,KC_TAB)
-#define ESCmed LT(_MEDIA,KC_ESC)
-#define MNUmed LT(_MEDIA,KC_APP)
-#define SPC_NAV LT(_NAV,KC_SPC)
-//#define CAPSgui MT(KC_LGUI,KC_CAPS)
-#define CAPSgui LGUI_T(KC_CAPS)
-#define CAPSsym1 LT(SYM1,KC_CAPS)
+/* //#define CAPS_NUM LT(_NAV2,KC_CAPS) */
+/* #define TABmed LT(_MEDIA,KC_TAB) */
+/* #define TABsym LT(SYM1,KC_TAB) */
+/* #define ESCmed LT(_MEDIA,KC_ESC) */
+/* #define MNUmed LT(_MEDIA,KC_APP) */
+/* #define SPC_NAV LT(_NAV,KC_SPC) */
+/* //#define CAPSgui MT(KC_LGUI,KC_CAPS) */
+/* #define CAPSgui LGUI_T(KC_CAPS) */
+/* #define CAPSsym1 LT(SYM1,KC_CAPS) */
 
-#define CTLEFT LCTL(KC_LEFT)
-#define CTRGHT LCTL(KC_RGHT)
+/* #define CTLEFT LCTL(KC_LEFT) */
+/* #define CTRGHT LCTL(KC_RGHT) */
 
-#define NUBSemacs LT(_EMACS,KC_NUBS)
-#define MINSemacs LT(_EMACS,KC_SLSH)
-// Alias para acortar los códigos de TAP DANCE
-#define LS_CAP TD(TD_LSFT_CAPS)
-#define LC_INS TD(TD_LCTL_INS)
-#define CTL_QWY TD(TD_QWERTY)
+/* #define NUBSemacs LT(_EMACS,KC_NUBS) */
+/* #define MINSemacs LT(_EMACS,KC_SLSH) */
+/* // Alias para acortar los códigos de TAP DANCE */
+/* #define LS_CAP TD(TD_LSFT_CAPS) */
+/* #define LC_INS TD(TD_LCTL_INS) */
+/* #define CTL_QWY TD(TD_QWERTY) */
 //#define LS_CAP TD()
 
 
@@ -52,95 +53,95 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /* #undef KC_LPRN */
 /* #define KC_LPRN LSFT(KC_8) */
 
-// Layer shorthand
-enum _layer {
-             _BASE,
-	     _QWERTY,
-	     _MEDIA,
-	     _NAV,
-	     SYM1,
-	     _EMACS,
-	     //_BLANK
-};
+/* // Layer shorthand */
+/* enum _layer { */
+/*              _BASE, */
+/* 	     _QWERTY, */
+/* 	     _MEDIA, */
+/* 	     _NAV, */
+/* 	     SYM1, */
+/* 	     _EMACS, */
+/* 	     //_BLANK */
+/* }; */
 
-// Left-hand home row mods
-#define HR_A LGUI_T(KC_A)
-#define HR_S LALT_T(KC_S)
-#define HR_D LCTL_T(KC_D)
-#define HR_F LSFT_T(KC_F)
+/* // Left-hand home row mods */
+/* #define HR_A LGUI_T(KC_A) */
+/* #define HR_S LALT_T(KC_S) */
+/* #define HR_D LCTL_T(KC_D) */
+/* #define HR_F LSFT_T(KC_F) */
 
-// Right-hand home row mods
-#define HR_J RSFT_T(KC_J)
-#define HR_K RCTL_T(KC_K)
-#define HR_L LALT_T(KC_L)
-#define HR_SCLN RGUI_T(KC_SCLN)
+/* // Right-hand home row mods */
+/* #define HR_J RSFT_T(KC_J) */
+/* #define HR_K RCTL_T(KC_K) */
+/* #define HR_L LALT_T(KC_L) */
+/* #define HR_SCLN RGUI_T(KC_SCLN) */
 
-// Tap Dance declarations
-enum {
-    TD_ESC_CAPS,
-    TD_ENiE_INS,
-    TD_LSFT_CAPS,
-    TD_LCTL_INS,
-    TD_QWERTY,
-    TD_BASE,
-};
+/* // Tap Dance declarations */
+/* enum { */
+/*     TD_ESC_CAPS, */
+/*     TD_ENiE_INS, */
+/*     TD_LSFT_CAPS, */
+/*     TD_LCTL_INS, */
+/*     TD_QWERTY, */
+/*     TD_BASE, */
+/* }; */
 
-enum custom_keycodes {
-    MAGIT = SAFE_RANGE,
-    ORGPDF,
-    OPEN,
-    SAVE,
-    BUFFER,
-};
+/* enum custom_keycodes { */
+/*     MAGIT = SAFE_RANGE, */
+/*     ORGPDF, */
+/*     OPEN, */
+/*     SAVE, */
+/*     BUFFER, */
+/* }; */
 
-// Tap Dance definitions
-tap_dance_action_t tap_dance_actions[] = {
-    // Tap once for Escape, twice for Caps Lock
-    [TD_ESC_CAPS] = ACTION_TAP_DANCE_DOUBLE(KC_ESC, KC_CAPS),
-    [TD_ENiE_INS] = ACTION_TAP_DANCE_DOUBLE(KC_SCLN, KC_INS),
-    [TD_LSFT_CAPS] = ACTION_TAP_DANCE_DOUBLE(KC_LSFT, KC_CAPS),
-    [TD_LCTL_INS] = ACTION_TAP_DANCE_DOUBLE(KC_LCTL, KC_INS),
-    [TD_QWERTY] = ACTION_TAP_DANCE_LAYER_TOGGLE(KC_RCTL, _QWERTY)
-};
+/* // Tap Dance definitions */
+/* tap_dance_action_t tap_dance_actions[] = { */
+/*     // Tap once for Escape, twice for Caps Lock */
+/*     [TD_ESC_CAPS] = ACTION_TAP_DANCE_DOUBLE(KC_ESC, KC_CAPS), */
+/*     [TD_ENiE_INS] = ACTION_TAP_DANCE_DOUBLE(KC_SCLN, KC_INS), */
+/*     [TD_LSFT_CAPS] = ACTION_TAP_DANCE_DOUBLE(KC_LSFT, KC_CAPS), */
+/*     [TD_LCTL_INS] = ACTION_TAP_DANCE_DOUBLE(KC_LCTL, KC_INS), */
+/*     [TD_QWERTY] = ACTION_TAP_DANCE_LAYER_TOGGLE(KC_RCTL, _QWERTY) */
+/* }; */
 
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  switch (keycode) {
-  case MAGIT:
-    if (record->event.pressed) {
-      // when keycode QMKBEST is pressed
-      SEND_STRING(SS_LCTL("x") SS_TAP(X_G));
-    } else {
-      // when keycode QMKBEST is released
-    }
-    break;
-  case ORGPDF:
-    if (record->event.pressed) {
-      SEND_STRING(SS_LCTL("ce") SS_TAP(X_L) SS_TAP(X_P));
-    }
-    break;
-  case OPEN:
-    if (record->event.pressed) {
-      SEND_STRING(SS_LCTL("xf"));
-    }
-    break;
-  case SAVE:
-    if (record->event.pressed) {
-      SEND_STRING(SS_LCTL("xs"));
-    }
-    break;
-  case BUFFER:
-    if (record->event.pressed) {
-      SEND_STRING(SS_LCTL("x") SS_TAP(X_B));
-    }
-    break;
-  /* case : */
-  /*   if (record->event.pressed) { */
-  /*     SEND_STRING(); */
-  /*   } */
-  /*   break; */
-  }
-  return true;
-};
+/* bool process_record_user(uint16_t keycode, keyrecord_t *record) { */
+/*   switch (keycode) { */
+/*   case MAGIT: */
+/*     if (record->event.pressed) { */
+/*       // when keycode QMKBEST is pressed */
+/*       SEND_STRING(SS_LCTL("x") SS_TAP(X_G)); */
+/*     } else { */
+/*       // when keycode QMKBEST is released */
+/*     } */
+/*     break; */
+/*   case ORGPDF: */
+/*     if (record->event.pressed) { */
+/*       SEND_STRING(SS_LCTL("ce") SS_TAP(X_L) SS_TAP(X_P)); */
+/*     } */
+/*     break; */
+/*   case OPEN: */
+/*     if (record->event.pressed) { */
+/*       SEND_STRING(SS_LCTL("xf")); */
+/*     } */
+/*     break; */
+/*   case SAVE: */
+/*     if (record->event.pressed) { */
+/*       SEND_STRING(SS_LCTL("xs")); */
+/*     } */
+/*     break; */
+/*   case BUFFER: */
+/*     if (record->event.pressed) { */
+/*       SEND_STRING(SS_LCTL("x") SS_TAP(X_B)); */
+/*     } */
+/*     break; */
+/*   /\* case : *\/ */
+/*   /\*   if (record->event.pressed) { *\/ */
+/*   /\*     SEND_STRING(); *\/ */
+/*   /\*   } *\/ */
+/*   /\*   break; *\/ */
+/*   } */
+/*   return true; */
+/* }; */
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -235,48 +236,48 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 */
 
-uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
-    switch(keycode) {
-        case HR_A:
-        case HR_S:
-        case HR_L:
-        case HR_SCLN: 
-            return TAPPING_TERM_LARGO;
-        default:
-            return TAPPING_TERM;
-    }
-}   
+/* uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) { */
+/*     switch(keycode) { */
+/*         case HR_A: */
+/*         case HR_S: */
+/*         case HR_L: */
+/*         case HR_SCLN:  */
+/*             return TAPPING_TERM_LARGO; */
+/*         default: */
+/*             return TAPPING_TERM; */
+/*     } */
+/* }    */
 
 
-/* bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) { */
-/*     switch (keycode) { */
-/*         case LT(_FUNC,KC_ESC): */
-/*         case LT(_NUM, KC_ENTER): */
-/*         //case LT(_MACRO, KC_BSPC): */
-/*         //case LT(_SYM, KC_SPC): */
-/*         case LT(_NAV, KC_TAB ): */
-/*         case LT(_MEDIA, KC_DEL): */
-/*         case TD(LT_BSPC): */
+/* /\* bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) { *\/ */
+/* /\*     switch (keycode) { *\/ */
+/* /\*         case LT(_FUNC,KC_ESC): *\/ */
+/* /\*         case LT(_NUM, KC_ENTER): *\/ */
+/* /\*         //case LT(_MACRO, KC_BSPC): *\/ */
+/* /\*         //case LT(_SYM, KC_SPC): *\/ */
+/* /\*         case LT(_NAV, KC_TAB ): *\/ */
+/* /\*         case LT(_MEDIA, KC_DEL): *\/ */
+/* /\*         case TD(LT_BSPC): *\/ */
 
-/*         // Immediately select the hold action when another key is pressed. */
+/* /\*         // Immediately select the hold action when another key is pressed. *\/ */
+/* /\*             return true; *\/ */
+/* /\*         default: *\/ */
+/* /\*             // Do not select the hold action when another key is pressed. *\/ */
+/* /\*             return false; *\/ */
+/* /\*     } *\/ */
+/* /\* } *\/ */
+
+
+/* bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) { */
+/*     switch (keycode) {   */
+/*         case HR_D: */
+/*         case HR_F: */
+/*         case HR_J: */
+/*         case HR_K: */
+/*             // Immediately select the hold action when another key is tapped. */
 /*             return true; */
 /*         default: */
-/*             // Do not select the hold action when another key is pressed. */
+/*             // Do not select the hold action when another key is tapped. */
 /*             return false; */
 /*     } */
 /* } */
-
-
-bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
-    switch (keycode) {  
-        case HR_D:
-        case HR_F:
-        case HR_J:
-        case HR_K:
-            // Immediately select the hold action when another key is tapped.
-            return true;
-        default:
-            // Do not select the hold action when another key is tapped.
-            return false;
-    }
-}
