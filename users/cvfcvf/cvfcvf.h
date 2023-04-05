@@ -9,13 +9,13 @@
 
 //#define CAPS_NUM LT(_NAV2,KC_CAPS)
 #define TABmed LT(_MEDIA,KC_TAB)
-#define TABsym LT(SYM1,KC_TAB)
+#define TABsym LT(_SYM,KC_TAB)
 #define ESCmed LT(_MEDIA,KC_ESC)
 #define MNUmed LT(_MEDIA,KC_APP)
 #define SPC_NAV LT(_NAV,KC_SPC)
 //#define CAPSgui MT(KC_LGUI,KC_CAPS)
 #define CAPSgui LGUI_T(KC_CAPS)
-#define CAPSsym1 LT(SYM1,KC_CAPS)
+#define CAPSsym1 LT(_SYM,KC_CAPS)
 
 #define CTLEFT LCTL(KC_LEFT)
 #define CTRGHT LCTL(KC_RGHT)
@@ -55,7 +55,8 @@ enum _layer {
   _QWERTY,
   _MEDIA,
   _NAV,
-  SYM1,
+  _SYM,
+  _NUM,
   _EMACS,
   //_BLANK
 };
