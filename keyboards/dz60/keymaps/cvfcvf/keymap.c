@@ -33,7 +33,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_GRV ,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,            KC_MINS,          KC_EQL,     KC_BSPC,
     ESCmed,   KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,            KC_LBRC,          KC_RBRC,
     TABsym,   HR_A,    HR_S,    HR_D,    HR_F,    KC_G,    KC_H,    HR_J,    HR_K,    HR_L,    HR_SCLN,         KC_QUOT,          KC_NUHS,    KC_ENT,
-    LS_CAP ,  KC_NUBS, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,          KC_SLSH,          KC_RSFT,
+    LS_CAP , NUBSemacs,KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,        MINSemacs,          KC_RSFT,
     LC_INS ,  KC_LGUI, KC_LALT,                            SPC_NAV,                            KC_RALT,         MO(_MEDIA),LT(_NUM,KC_APP),   CTL_QWY),
 
   [_QWERTY] = LAYOUT_60_iso(
@@ -70,6 +70,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, RGB_MOD, RGB_HUD, RGB_SAD, RGB_VAD, XXXXXXX, XXXXXXX, KC_VOLD, KC_MUTE, KC_VOLU, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
     _______, BL_DOWN, BL_TOGG, BL_UP ,  BL_STEP, XXXXXXX, XXXXXXX, KC_MPRV, KC_MPLY, KC_MNXT, XXXXXXX, XXXXXXX, XXXXXXX,
     _______, _______, _______,                            XXXXXXX,                            _______, _______, _______, _______),
+
+  [_EMACS] = LAYOUT_60_iso(
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, ORGPDF,  XXXXXXX, XXXXXXX,        
+    XXXXXXX, XXXXXXX, SAVE  ,  XXXXXXX, OPEN  ,  MAGIT ,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    XXXXXXX, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, BUFFER,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, XXXXXXX,
+    XXXXXXX, XXXXXXX, XXXXXXX,                            XXXXXXX,                            XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
+    ),
+
 
 };
 /* Capa _MEDIA original, con los ajustes de RGB
