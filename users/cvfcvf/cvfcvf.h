@@ -23,6 +23,8 @@
 #define NUBSemacs LT(_EMACS,KC_NUBS)
 #define MINSemacs LT(_EMACS,KC_SLSH)
 
+#define GRVnum LT(_NUM,KC_GRV)
+
 // Alias para acortar los códigos de TAP DANCE
 #define LS_CAP TD(TD_LSFT_CAPS)
 #define LC_INS TD(TD_LCTL_INS)
