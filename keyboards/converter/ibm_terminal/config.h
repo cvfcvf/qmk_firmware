@@ -18,6 +18,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #pragma once
 
+#define VENDOR_ID       0xFEED
+#define PRODUCT_ID      0x6537
+#define DEVICE_VER      0x0100
+#define MANUFACTURER    QMK
+#define PRODUCT         IBM Terminal Keyboard (INT)
+
+
 /* matrix size */
 #define MATRIX_ROWS 17  // keycode bit: 3-0
 #define MATRIX_COLS 8   // keycode bit: 6-4
@@ -32,6 +39,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     get_mods() == (MOD_BIT(KC_LSFT) | MOD_BIT(KC_RSFT) | MOD_BIT(KC_RALT) | MOD_BIT(KC_RCTL)) \
 )
 
+/* Configuración de space cadet */
+#define LSPO_KEY KC_8
+#define RSPC_KEY KC_9
 
 /*
  * PS/2 USART configuration for ATMega32U4
