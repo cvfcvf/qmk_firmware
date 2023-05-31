@@ -74,6 +74,10 @@ enum custom_keycodes {
     OPEN,
     SAVE,
     BUFFER,
+    RECENT,
+    DIVH,
+    DIVV,
+    NODIV,
 };
 
 // Layer shorthand
@@ -101,7 +105,7 @@ enum {
 // Combos
 enum combos{
     FJ_TILDE,
-    COMBO_LENGTH
+    COMBO_LENGTH // este siempre el último
     };
 //uint16_t COMBO_LEN = COMBO_LENGTH; // remove the COMBO_COUNT define and use this instead!
 

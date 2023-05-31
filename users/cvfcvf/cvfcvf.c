@@ -43,6 +43,26 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       SEND_STRING(SS_LCTL("x") SS_TAP(X_B));
     }
     break;
+  case RECENT:
+    if (record->event.pressed) {
+      SEND_STRING(SS_LCTL("xr"));
+    }
+    break;
+  case NODIV:
+    if (record->event.pressed) {
+      SEND_STRING(SS_LCTL("x") SS_TAP(X_1));
+    }
+    break;
+  case DIVH:
+    if (record->event.pressed) {
+      SEND_STRING(SS_LCTL("x") SS_TAP(X_2));
+    }
+    break;
+  case DIVV:
+    if (record->event.pressed) {
+      SEND_STRING(SS_LCTL("x") SS_TAP(X_3));
+    }
+    break;
   /* case : */
   /*   if (record->event.pressed) { */
   /*     SEND_STRING(); */
