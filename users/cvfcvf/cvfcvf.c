@@ -118,9 +118,9 @@ bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
 }
 
 // Combos
-uint16_t COMBO_LEN = COMBO_LENGTH; // remove the COMBO_COUNT define and use this instead!
-const uint16_t PROGMEM fj_combo[] = {HR_F, HR_J, COMBO_END};
+/* uint16_t COMBO_LEN = COMBO_LENGTH; // remove the COMBO_COUNT define and use this instead! */
+/* const uint16_t PROGMEM fj_combo[] = {HR_F, HR_J, COMBO_END}; */
 
-combo_t key_combos[] = {
-  [FJ_TILDE] = COMBO(fj_combo, ES_ACUT),
-  };
+/* combo_t key_combos[] = { */
+/*   [FJ_TILDE] = COMBO(fj_combo, ES_ACUT), */
+/*   }; */
