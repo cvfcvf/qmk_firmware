@@ -14,4 +14,4 @@
 # COMBO_ENABLE = no           # Combos
 
 EXTRAFLAGS += -flto
-SRC += cvfcvf.c
+SRC += cvfcvf.c combos.c
