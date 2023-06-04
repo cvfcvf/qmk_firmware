@@ -14,7 +14,8 @@
 #define TAPPING_TERM_PER_KEY
 #define TAPPING_TERM_LARGO 250
 
-#define IGNORE_MOD_TAP_INTERRUPT          // Enable ignore mod tap interrupt: https://docs.qmk.fm/#/tap_hold?id=ignore-mod-tap-interrupt
+// #define IGNORE_MOD_TAP_INTERRUPT          // Enable ignore mod tap interrupt: https://docs.qmk.fm/#/tap_hold?id=ignore-mod-tap-interrupt // Parece que ya no es necesario y da un error al compilar
+
 //#define IGNORE_MOD_TAP_INTERRUPT_PER_KEY  // Allows configuration of ignore mod tap interrupt per key in keymap.c
 
 // Enable rapid switch from tap to hold, disables double tap hold auto-repeat.
