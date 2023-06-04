@@ -89,3 +89,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _______, _______,                            XXXXXXX,                            _______, _______, _______, _______),
 
 */
+// Combos
+// Esto es necesario tras cambios en qmk. Ahora, la configuración de combos tiene que estar en keymap.c
+#include "combos.c"

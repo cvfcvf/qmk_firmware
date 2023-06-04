@@ -14,4 +14,4 @@ TAP_DANCE_ENABLE = yes      # Soporte para TAP DANCE
 COMBO_ENABLE = yes          # Combos
 
 EXTRAFLAGS += -flto
-#SRC += combos.c
+SRC += cvfcvf.c
