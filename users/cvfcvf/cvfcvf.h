@@ -51,6 +51,8 @@
 
 #define GRVnum LT(_NUM,KC_GRV)
 
+#define miEURO ALGR(KC_E)
+
 // Alias para acortar los códigos de TAP DANCE
 #define LS_CAP TD(TD_LSFT_CAPS)
 #define LC_INS TD(TD_LCTL_INS)
