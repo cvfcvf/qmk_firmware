@@ -63,6 +63,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       SEND_STRING(SS_LCTL("x") SS_TAP(X_3));
     }
     break;
+  case KILL:
+    if (record->event.pressed) {
+      SEND_STRING(SS_LCTL("x") SS_TAP(X_K));
+    }
+    break;
+  case SAVE_AS:
+    if (record->event.pressed) {
+      SEND_STRING(SS_LCTL("xw"));
+    }
+    break;
   /* case : */
   /*   if (record->event.pressed) { */
   /*     SEND_STRING(); */
