@@ -74,8 +74,10 @@ enum custom_keycodes {
     ORGPDF,
     OPEN,
     SAVE,
+    SAVE_AS,
     BUFFER,
     RECENT,
+    KILL,
     DIVH,
     DIVV,
     NODIV,
@@ -85,11 +87,11 @@ enum custom_keycodes {
 enum _layer {
   _BASE,
   _QWERTY,
-  _MEDIA,
   _NAV,
   _SYM,
   _NUM,
   _EMACS,
+  _MEDIA,
   //_BLANK
 };
 
