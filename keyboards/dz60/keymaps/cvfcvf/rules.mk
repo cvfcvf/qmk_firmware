@@ -12,6 +12,7 @@ RGBLIGHT_ENABLE = yes       # Enable keyboard RGB underglow
 AUDIO_ENABLE = no           # Audio output
 TAP_DANCE_ENABLE = yes      # Soporte para TAP DANCE
 COMBO_ENABLE = yes          # Combos
+CAPS_WORD_ENABLE = yes
 
 EXTRAFLAGS += -flto
 SRC += cvfcvf.c

@@ -45,7 +45,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_NAV] = LAYOUT_60_iso(
     KC_ESC,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_DEL,
     _______, XXXXXXX, XXXXXXX, KC_APP , XXXXXXX, KC_INS , KC_PGUP, CTLEFT,  KC_UP,   CTRGHT,  XXXXXXX, XXXXXXX, XXXXXXX,
-    _______, _______, _______, _______, _______, KC_CAPS, KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, KC_DEL , XXXXXXX, XXXXXXX, XXXXXXX,
+    _______, _______, _______, _______, _______, CW_TOGG, KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, KC_DEL , XXXXXXX, XXXXXXX, XXXXXXX,
     _______, XXXXXXX, KC_UNDO, XXXXXXX, KC_WBAK, KC_WFWD, XXXXXXX, XXXXXXX, KC_HOME, XXXXXXX, KC_END , KC_ENT , XXXXXXX,
     _______, _______, _______,                            XXXXXXX,                            _______, XXXXXXX, XXXXXXX, _______),
 
@@ -92,3 +92,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // Combos
 // Esto es necesario tras cambios en qmk. Ahora, la configuración de combos tiene que estar en keymap.c
 #include "combos.c"
+
+bool caps_word_press_user(uint16_t keycode) {
+    switch (keycode) {
+        // Keycodes that continue Caps Word, with shift applied.
+        case KC_A ... KC_Z:
+        case ES_MINS:
+            add_weak_mods(MOD_BIT(KC_LSFT));  // Apply shift to next key.
+            return true;
+
+        // Keycodes that continue Caps Word, without shifting.
+        case KC_1 ... KC_0:
+        case KC_BSPC:
+        case KC_DEL:
+        case KC_UNDS:
+            return true;
+
+        default:
+            return false;  // Deactivate Caps Word.
+    }
+}
