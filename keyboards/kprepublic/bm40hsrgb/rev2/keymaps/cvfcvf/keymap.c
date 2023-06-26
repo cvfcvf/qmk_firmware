@@ -19,16 +19,24 @@
 #include "cvfcvf.h"
 
 /* enum layers { */
-/*   _QWERTY, */
+/*   _QWRTY, */
 /*   _LOWER, */
 /*   _RAISE, */
-/*   _NAV, */
+/*   _NAVIG, */
 /*   _ADJUST */
 /* }; */
 
+#define TL_LOWR MO(_SYM)
+//#define TL_UPPR MO(_NUM)
+#define TL_UPPR LT(_NUM,KC_ENT)
+
+#define em_Z LT(_EMACS,KC_Z)
+
+#define _QWRTY _BASE
 #define _LOWER _SYM
 #define _RAISE _NUM
-#define _ADJUST _EMACS
+#define _ADJUST _MEDIA
+#define _NAVIG _NAV
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
