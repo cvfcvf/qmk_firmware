@@ -1,0 +1,6 @@
+CUSTOM_MATRIX = lite
+#CONSOLE_ENABLE = yes
+MOUSEKEY_ENABLE = no
+NKRO_ENABLE = no
+SRC += matrix.c
+QUANTUM_LIB_SRC += spi_master.c
