@@ -26,9 +26,11 @@
 /*   _ADJUST */
 /* }; */
 
-#define TL_LOWR MO(_SYM)
-//#define TL_UPPR MO(_NUM)
-#define TL_UPPR LT(_NUM,KC_ENT)
+//#define TL_LOWR MO(_SYM)
+#define TL_LOWR LT(_SYM, KC_ENT)
+
+#define TL_UPPR MO(_NUM)
+//#define TL_UPPR LT(_NUM,KC_ENT)
 
 #define em_Z LT(_EMACS,KC_Z)
 
