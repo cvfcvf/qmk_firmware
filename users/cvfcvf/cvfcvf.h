@@ -88,10 +88,10 @@ enum custom_keycodes {
 // Layer shorthand
 enum _layer {
   _BASE,
+  _NUM,
   _QWERTY,
   _NAV,
   _SYM,
-  _NUM,
   _EMACS,
   _MEDIA,
   //_BLANK
