@@ -29,7 +29,8 @@
 //#define TL_LOWR MO(_SYM)
 #define TL_LOWR LT(_SYM, KC_ENT)
 
-#define TL_UPPR MO(_NUM)
+#define TL_UPPR TD(TD_UPR_NUM)
+//#define TL_UPPR MO(_NUM)
 //#define TL_UPPR LT(_NUM,KC_ENT)
 
 #define em_Z LT(_EMACS,KC_Z)
@@ -58,14 +59,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_ESC,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
     KC_TAB,  HR_A,    HR_S,    HR_D,    HR_F,    KC_G,    KC_H,    HR_J,    HR_K,    HR_L,    HR_SCLN, KC_QUOT,
     KC_LSFT, em_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  MINSemacs, KC_ENT ,
-    KC_LCTL, DF(_NUM),KC_LGUI, KC_LALT, TL_LOWR,      SPC_NAV,     TL_UPPR, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
+    KC_LCTL, TG(_NUM),KC_LGUI, KC_LALT, TL_LOWR,      SPC_NAV,     TL_UPPR, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
 ),
 
 [_NAV] = LAYOUT_ortho_4x12_1x2uC(
     KC_GRV , XXXXXXX, XXXXXXX, KC_APP , XXXXXXX, KC_INS , KC_PGUP, CTLEFT,  KC_UP,   CTRGHT,  XXXXXXX, XXXXXXX,
     _______, _______, _______, _______, _______, CW_TOGG, KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, KC_DEL , XXXXXXX,
     _______, KC_UNDO, XXXXXXX, KC_WBAK, KC_WFWD, XXXXXXX, XXXXXXX, KC_HOME, XXXXXXX, KC_END , XXXXXXX, KC_ENT ,
-    KC_LCTL, DF(_NUM),KC_LGUI, KC_LALT, TL_LOWR,      SPC_NAV,     KC_RALT, KC_MNXT, KC_VOLD, KC_VOLU, KC_MPLY
+    KC_LCTL, TG(_NUM),KC_LGUI, KC_LALT, TL_LOWR,      SPC_NAV,     KC_RALT, KC_MNXT, KC_VOLD, KC_VOLU, KC_MPLY
 ),
 
 /* Lower
@@ -103,7 +104,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC,
     KC_TAB,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_4   , KC_5,    KC_6   , ES_MINS, KC_BSLS,
     KC_LSFT, KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_1   , KC_2,    KC_3   , ES_PLUS, KC_ENT ,
-    KC_LCTL,DF(_BASE),KC_LGUI, KC_LALT, TL_LOWR,      SPC_NAV,     _______, KC_0,    KC_DOT , KC_VOLU, KC_MPLY
+    KC_LCTL,TG(_NUM), KC_LGUI, KC_LALT, TL_LOWR,      SPC_NAV,     _______, KC_0,    KC_DOT , KC_VOLU, KC_MPLY
 ),
 
 [_EMACS] = LAYOUT_ortho_4x12_1x2uC(

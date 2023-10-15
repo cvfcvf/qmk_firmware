@@ -8,7 +8,8 @@ tap_dance_action_t tap_dance_actions[] = {
     [TD_ENiE_INS] = ACTION_TAP_DANCE_DOUBLE(KC_SCLN, KC_INS),
     [TD_LSFT_CAPS] = ACTION_TAP_DANCE_DOUBLE(KC_LSFT, KC_CAPS),
     [TD_LCTL_INS] = ACTION_TAP_DANCE_DOUBLE(KC_LCTL, KC_INS),
-    [TD_QWERTY] = ACTION_TAP_DANCE_LAYER_TOGGLE(KC_RCTL, _QWERTY)
+    [TD_QWERTY] = ACTION_TAP_DANCE_LAYER_TOGGLE(KC_RCTL, _QWERTY),
+    [TD_UPR_NUM] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, ql_finished, ql_reset)
 };
 
 
@@ -134,3 +135,66 @@ bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
 /* combo_t key_combos[] = { */
 /*   [FJ_TILDE] = COMBO(fj_combo, ES_ACUT), */
 /*   }; */
+
+// Determine the current tap dance state
+td_state_t cur_dance(tap_dance_state_t *state) {
+    if (state->count == 1) {
+        if (!state->pressed) return TD_SINGLE_TAP;
+        else return TD_SINGLE_HOLD;
+    } else if (state->count == 2) return TD_DOUBLE_TAP;
+    else return TD_UNKNOWN;
+}
+
+// Initialize tap structure associated with example tap dance key
+static td_tap_t ql_tap_state = {
+    .is_press_action = true,
+    .state = TD_NONE
+};
+
+// Functions that control what our tap dance key does
+void ql_finished(tap_dance_state_t *state, void *user_data) {
+    ql_tap_state.state = cur_dance(state);
+    switch (ql_tap_state.state) {
+        case TD_SINGLE_TAP:
+            tap_code(KC_ENT);
+            break;
+        case TD_SINGLE_HOLD:
+            layer_on(_NUM);
+            break;
+        case TD_DOUBLE_TAP:
+            // Check to see if the layer is already set
+            if (layer_state_is(_NUM)) {
+                // If already set, then switch it off
+                layer_off(_NUM);
+            } else {
+                // If not already set, then switch the layer on
+                layer_on(_NUM);
+            }
+            break;
+        default:
+            break;
+    }
+}
+
+void ql_reset(tap_dance_state_t *state, void *user_data) {
+    // If the key was held down and now is released then switch off the layer
+    if (ql_tap_state.state == TD_SINGLE_HOLD) {
+        layer_off(_NUM);
+    }
+    ql_tap_state.state = TD_NONE;
+}
+
+/* // Associate our tap dance key with its functionality */
+/* tap_dance_action_t tap_dance_actions[] = { */
+/*     [QUOT_LAYR] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, ql_finished, ql_reset) */
+/* }; */
+
+/* // Set a long-ish tapping term for tap-dance keys */
+/* uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) { */
+/*     switch (keycode) { */
+/*         case QK_TAP_DANCE ... QK_TAP_DANCE_MAX: */
+/*             return 275; */
+/*         default: */
+/*             return TAPPING_TERM; */
+/*     } */
+/* } */
