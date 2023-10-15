@@ -81,10 +81,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 //[_LOWER] = LAYOUT_ortho_4x12_1x2uC(
 [_SYM] = LAYOUT_ortho_4x12_1x2uC(
-    _______, ES_EXLM, ES_DQUO, ES_BULT, ES_DLR,  ES_PERC, ES_AMPR, ES_IEXL,    ES_LBRC,    ES_RBRC, ES_EXLM, KC_BSPC,
-    KC_DEL,  ES_EQL,  ES_PLUS, ES_ASTR, ES_SLSH, ES_CIRC, ES_BSLS, ES_IQUE,    ES_LPRN,    ES_RPRN, ES_QUES, ES_CCED,
-    _______, miEURO , ES_LABK, ES_RABK, ES_PIPE, ES_QUOT, XXXXXXX, ES_HASH,    ES_LCBR,    ES_RCBR, ES_AT  , _______,
-    _______, _______ ,_______, _______, _______,      _______,     _______,    KC_MNXT,    KC_VOLD, KC_VOLU, KC_MPLY
+    ALGR(KC_GRV), ES_EXLM, ES_DQUO, ES_BULT, ES_DLR,  ES_PERC, ES_AMPR, ES_IEXL,    ES_LBRC,    ES_RBRC, ES_EXLM, KC_BSPC,
+    KC_DEL,       ES_EQL,  ES_PLUS, ES_ASTR, ES_SLSH, ES_CIRC, ES_BSLS, ES_IQUE,    ES_LPRN,    ES_RPRN, ES_QUES, ES_CCED,
+    _______,      miEURO , ES_LABK, ES_RABK, ES_PIPE, ES_QUOT, XXXXXXX, ES_HASH,    ES_LCBR,    ES_RCBR, ES_AT  , _______,
+    _______,      _______ ,_______, _______, _______,      _______,     _______,    KC_MNXT,    KC_VOLD, KC_VOLU, KC_MPLY
 ),
 
 /* Raise
