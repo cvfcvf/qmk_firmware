@@ -23,5 +23,13 @@ RGBLIGHT_ENABLE = no        # Enable WS2812 RGB underlight.
 API_SYSEX_ENABLE = no
 G80_2551_SUPPORT = no
 
+TAP_DANCE_ENABLE = yes      # Soporte para TAP DANCE
+COMBO_ENABLE = yes          # Combos
+CAPS_WORD_ENABLE = yes
+
+EXTRAFLAGS += -flto
+SRC += cvfcvf.c
+
+
 # Do not enable SLEEP_LED_ENABLE. it uses the same timer as BACKLIGHT_ENABLE
 SLEEP_LED_ENABLE = no    # Breathing sleep LED during USB suspend
