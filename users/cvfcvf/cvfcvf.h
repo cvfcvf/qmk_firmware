@@ -36,12 +36,14 @@
 //#define CAPS_NUM LT(_NAV2,KC_CAPS)
 #define TABmed LT(_MEDIA,KC_TAB)
 #define TABsym LT(_SYM,KC_TAB)
+
 #define ESCmed LT(_MEDIA,KC_ESC)
 #define MNUmed LT(_MEDIA,KC_APP)
 #define SPC_NAV LT(_NAV,KC_SPC)
-//#define CAPSgui MT(KC_LGUI,KC_CAPS)
 #define CAPSgui LGUI_T(KC_CAPS)
 #define CAPSsym1 LT(_SYM,KC_CAPS)
+
+#define TABGUI LGUI_T(KC_TAB)
 
 #define CTLEFT LCTL(KC_LEFT)
 #define CTRGHT LCTL(KC_RGHT)
@@ -60,6 +62,7 @@
 //#define LS_CAP TD()
 
 // Left-hand home row mods
+#define symA LT(_SYM,KC_A)
 #define HR_A LGUI_T(KC_A)
 #define HR_S LALT_T(KC_S)
 #define HR_D LCTL_T(KC_D)
@@ -67,9 +70,10 @@
 
 // Right-hand home row mods
 #define HR_J RSFT_T(KC_J)
-#define HR_K RCTL_T(KC_K)
+#define HR_K LCTL_T(KC_K)
 #define HR_L LALT_T(KC_L)
 #define HR_SCLN RGUI_T(KC_SCLN)
+#define symSCLN LT(_SYM,KC_SCLN)
 
 enum custom_keycodes {
     MAGIT = SAFE_RANGE,
@@ -83,6 +87,7 @@ enum custom_keycodes {
     DIVH,
     DIVV,
     NODIV,
+    esBQUOT,
 };
 
 // Layer shorthand

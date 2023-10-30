@@ -74,6 +74,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       SEND_STRING(SS_LCTL("xw"));
     }
     break;
+  case esBQUOT:
+    if (record->event.pressed) {
+      SEND_STRING(SS_TAP(X_LBRC) SS_TAP(X_SPC));
+    }
+    break;
   /* case : */
   /*   if (record->event.pressed) { */
   /*     SEND_STRING(); */
@@ -86,10 +91,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 // Ajustes de HRM
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch(keycode) {
+        case symA:
         case HR_A:
         case HR_S:
         case HR_L:
-        case HR_SCLN: 
+        case HR_SCLN:
+        case symSCLN:
             return TAPPING_TERM_LARGO;
         default:
             return TAPPING_TERM;
