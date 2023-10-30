@@ -29,9 +29,9 @@
 //#define TL_LOWR MO(_SYM)
 #define TL_LOWR LT(_SYM, KC_ENT)
 
-#define TL_UPPR TD(TD_UPR_NUM)
+//#define TL_UPPR TD(TD_UPR_NUM) // Esto era un poco demasiado.
 //#define TL_UPPR MO(_NUM)
-//#define TL_UPPR LT(_NUM,KC_ENT)
+#define TL_UPPR LT(_NUM,KC_BSPC)
 
 #define em_Z LT(_EMACS,KC_Z)
 
