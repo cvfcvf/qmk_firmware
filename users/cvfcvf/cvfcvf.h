@@ -83,6 +83,7 @@ enum custom_keycodes {
     DIVH,
     DIVV,
     NODIV,
+    esBQUOT,
 };
 
 // Layer shorthand
