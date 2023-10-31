@@ -58,7 +58,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_BASE] = LAYOUT_ortho_4x12_1x2uC(
     KC_ESC,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
     TABGUI,  symA,    HR_S,    HR_D,    HR_F,    KC_G,    KC_H,    HR_J,    HR_K,    HR_L,    symSCLN, KC_QUOT,
-    KC_LSFT, em_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  MINSemacs, KC_ENT ,
+    LS_CAP , em_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  MINSemacs, KC_ENT ,
     KC_LCTL, TG(_NUM),KC_LGUI, KC_LALT, TL_LOWR,      SPC_NAV,     TL_UPPR, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
 ),
 
@@ -111,7 +111,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /*    ESC  ,    Q   ,    W   ,    E   ,    R   ,    T   ,    Y   ,    U   ,    I   ,    O   ,    P   ,    BS    */
     XXXXXXX, XXXXXXX, SAVE_AS, XXXXXXX, RECENT , XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, ORGPDF , XXXXXXX, 
     XXXXXXX, XXXXXXX, SAVE   , XXXXXXX, OPEN   , MAGIT  , XXXXXXX, XXXXXXX, KILL   , XXXXXXX, XXXXXXX, XXXXXXX, 
-    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, BUFFER , XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, 
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, BUFFER , TeXnERR, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, 
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,      XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
 ),
 /* Adjust (Lower + Raise)
