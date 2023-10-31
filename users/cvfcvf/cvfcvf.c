@@ -79,6 +79,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       SEND_STRING(SS_TAP(X_LBRC) SS_TAP(X_SPC));
     }
     break;
+  case TeXnERR:
+    if (record->event.pressed) {
+      SEND_STRING(SS_LCTL("c") SS_TAP(X_LBRC) SS_TAP(X_SPC));// Esto es lo mismo que esBQUOT, habría que encontrar la forma de llamar directamente a ese keycode
+    }
+    break;
   /* case : */
   /*   if (record->event.pressed) { */
   /*     SEND_STRING(); */
