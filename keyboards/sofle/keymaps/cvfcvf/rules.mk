@@ -1,0 +1,16 @@
+MOUSEKEY_ENABLE = no
+EXTRAKEY_ENABLE = yes
+CONSOLE_ENABLE = no
+RGBLIGHT_ENABLE = no
+ENCODER_ENABLE = yes
+LTO_ENABLE = yes
+OLED_ENABLE = yes
+OLED_DRIVER = SSD1306
+
+TAP_DANCE_ENABLE = yes      # Soporte para TAP DANCE
+COMBO_ENABLE = yes          # Combos
+CAPS_WORD_ENABLE = yes
+
+EXTRAFLAGS += -flto
+SRC += cvfcvf.c
+
