@@ -89,17 +89,34 @@ enum custom_keycodes {
     NODIV,
     esBQUOT,
     TeXnERR,
+    // Estos vienen de la configuración del sofle.
+    KC_QWERTY,
+    KC_COLEMAK,
+    	  KC_COLEMAKDH,
+    KC_LOWER,
+    KC_RAISE,
+    KC_ADJUST,
+    KC_PRVWD,
+    KC_NXTWD,
+    KC_LSTRT,
+    KC_LEND,
+    KC_DLINE,
+    KC_D_MUTE
 };
 
 // Layer shorthand
 enum _layer {
-  _BASE,
-  _NUM,
-  _QWERTY,
+  _QWERTY = 0, // antes _BASE. Cambiar en los demás teclados
+  _DEFAULTS = 0,
+  _COLEMAK, // del sofle. Convendría ponerlo condicional
+  _COLEMAKDH,
+  _NUMPAD,
+  _NOQMK, // antes _QWERTY
   _NAV,
   _SYM,
   _EMACS,
-  _MEDIA,
+  _ADJUST,
+  //_SWITCH,
   //_BLANK
 };
 

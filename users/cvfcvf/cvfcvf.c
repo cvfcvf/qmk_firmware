@@ -1,6 +1,9 @@
 #include "keymap_spanish.h"
 #include "cvfcvf.h"
 
+#define _LOWER _SYM
+#define _RAISE _NUMPAD
+
 // Tap Dance definitions
 tap_dance_action_t tap_dance_actions[] = {
     // Tap once for Escape, twice for Caps Lock
@@ -84,15 +87,65 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       SEND_STRING(SS_LCTL("c") SS_TAP(X_LBRC) SS_TAP(X_SPC));// Esto es lo mismo que esBQUOT, habría que encontrar la forma de llamar directamente a ese keycode
     }
     break;
-  /* case : */
-  /*   if (record->event.pressed) { */
-  /*     SEND_STRING(); */
-  /*   } */
-  /*   break; */
+    // Esto viene de la configuración del sofle RGB, mejor como un condicional.
+  case KC_QWERTY:
+    if (record->event.pressed) {
+      set_single_persistent_default_layer(_QWERTY);
+    }
+    return false;
+  case KC_COLEMAK:
+    if (record->event.pressed) {
+      set_single_persistent_default_layer(_COLEMAK);
+    }
+    return false;
+  case KC_COLEMAKDH:
+    if (record->event.pressed) {
+      set_single_persistent_default_layer(_COLEMAKDH);
+    }
+    return false;
+  case KC_LOWER:
+    if (record->event.pressed) {
+      layer_on(_LOWER);
+      update_tri_layer(_LOWER, _RAISE, _ADJUST);
+    } else {
+      layer_off(_LOWER);
+      update_tri_layer(_LOWER, _RAISE, _ADJUST);
+    }
+    return false;
+  case KC_RAISE:
+    if (record->event.pressed) {
+      layer_on(_RAISE);
+      update_tri_layer(_LOWER, _RAISE, _ADJUST);
+    } else {
+      layer_off(_RAISE);
+      update_tri_layer(_LOWER, _RAISE, _ADJUST);
+    }
+    return false;
+  case KC_ADJUST:
+    if (record->event.pressed) {
+      layer_on(_ADJUST);
+    } else {
+      layer_off(_ADJUST);
+    }
+    return false;
+  case KC_D_MUTE:
+    if (record->event.pressed) {
+      register_mods(mod_config(MOD_MEH));
+      register_code(KC_UP);
+    } else {
+      unregister_mods(mod_config(MOD_MEH));
+      unregister_code(KC_UP);
+    }
+
+    /* case : */
+    /*   if (record->event.pressed) { */
+    /*     SEND_STRING(); */
+    /*   } */
+    /*   break; */
   }
   return true;
 };
-
+ 
 // Ajustes de HRM
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch(keycode) {
@@ -111,7 +164,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 /* bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) { */
 /*     switch (keycode) { */
 /*         case LT(_FUNC,KC_ESC): */
-/*         case LT(_NUM, KC_ENTER): */
+/*         case LT(_NUMPAD, KC_ENTER): */
 /*         //case LT(_MACRO, KC_BSPC): */
 /*         //case LT(_SYM, KC_SPC): */
 /*         case LT(_NAV, KC_TAB ): */
@@ -171,16 +224,16 @@ void ql_finished(tap_dance_state_t *state, void *user_data) {
             tap_code(KC_ENT);
             break;
         case TD_SINGLE_HOLD:
-            layer_on(_NUM);
+            layer_on(_NUMPAD);
             break;
         case TD_DOUBLE_TAP:
             // Check to see if the layer is already set
-            if (layer_state_is(_NUM)) {
+            if (layer_state_is(_NUMPAD)) {
                 // If already set, then switch it off
-                layer_off(_NUM);
+                layer_off(_NUMPAD);
             } else {
                 // If not already set, then switch the layer on
-                layer_on(_NUM);
+                layer_on(_NUMPAD);
             }
             break;
         default:
@@ -191,7 +244,7 @@ void ql_finished(tap_dance_state_t *state, void *user_data) {
 void ql_reset(tap_dance_state_t *state, void *user_data) {
     // If the key was held down and now is released then switch off the layer
     if (ql_tap_state.state == TD_SINGLE_HOLD) {
-        layer_off(_NUM);
+        layer_off(_NUMPAD);
     }
     ql_tap_state.state = TD_NONE;
 }
