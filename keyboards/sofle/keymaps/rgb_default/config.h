@@ -22,9 +22,10 @@
 
 ///https://thomasbaart.nl/2018/12/01/reducing-firmware-size-in-qmk/
 
+#define SPLIT_USB_DETECT
 
-#define MASTER_LEFT
-// #define MASTER_RIGHT
+//#define MASTER_LEFT
+#define MASTER_RIGHT
 // #define EE_HANDS
 
 #define CUSTOM_FONT
