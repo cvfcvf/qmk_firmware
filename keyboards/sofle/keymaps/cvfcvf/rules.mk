@@ -5,7 +5,7 @@ RGBLIGHT_ENABLE = no
 ENCODER_ENABLE = yes
 LTO_ENABLE = yes
 OLED_ENABLE = yes
-OLED_DRIVER = SSD1306
+OLED_DRIVER = ssd1306
 
 TAP_DANCE_ENABLE = yes      # Soporte para TAP DANCE
 COMBO_ENABLE = yes          # Combos
