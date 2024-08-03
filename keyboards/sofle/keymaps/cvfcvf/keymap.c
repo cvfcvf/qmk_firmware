@@ -21,6 +21,11 @@
 #include "keymap_spanish.h"
 #include "cvfcvf.h"
 
+#ifdef ENCODER_RESOLUTION
+#undef ENCODER_RESOLUTION
+#define ENCODER_RESOLUTION 1
+#endif
+
 #define em_Z LT(_EMACS,KC_Z)
 #define TL_LOWR LT(_SYM, KC_ENT)
 #define TL_UPPR LT(_NUMPAD, KC_DEL)
@@ -463,14 +468,14 @@ bool oled_task_user(void) {
 #ifdef ENCODER_ENABLE
 
 bool encoder_update_user(uint8_t index, bool clockwise) {
-    if (index == 0) {
+    if (index == 1) {
         if (clockwise) {
             tap_code(KC_VOLU);
         } else {
             tap_code(KC_VOLD);
         }
 		}
-    else if (index == 1) {
+    else if (index == 0) {
       switch (get_highest_layer(layer_state)) {
       case _COLEMAK:
       case _QWERTY:
@@ -498,7 +503,7 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
 	break;
       }
     }
-    return true;
+    return false;
 }
 
 #endif
