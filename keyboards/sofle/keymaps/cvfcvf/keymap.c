@@ -27,7 +27,7 @@
 #endif
 
 #define em_Z LT(_EMACS,KC_Z)
-#define TL_LOWR LT(_SYM, KC_ENT)
+#define TL_LOWR LT(_SYM, KC_TAB)
 #define TL_UPPR LT(_NUMPAD, KC_DEL)
 
 #define _LOWER _SYM
