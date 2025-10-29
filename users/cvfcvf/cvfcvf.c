@@ -87,6 +87,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       SEND_STRING(SS_LCTL("c") SS_TAP(X_LBRC) SS_TAP(X_SPC));// Esto es lo mismo que esBQUOT, habría que encontrar la forma de llamar directamente a ese keycode
     }
     break;
+  case IBUFFER:
+    if (record->event.pressed) {
+      SEND_STRING(SS_LCTL("c")"I");
+    }
+    break;
+  case DIRED:
+    if (record->event.pressed) {
+      SEND_STRING(SS_LCTL("c")"D");
+    }
+    break;
     // Esto viene de la configuración del sofle RGB, mejor como un condicional.
   case KC_QWERTY:
     if (record->event.pressed) {

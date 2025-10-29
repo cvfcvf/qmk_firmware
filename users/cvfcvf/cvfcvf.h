@@ -89,10 +89,12 @@ enum custom_keycodes {
     NODIV,
     esBQUOT,
     TeXnERR,
+    IBUFFER,
+    DIRED,
     // Estos vienen de la configuración del sofle.
     KC_QWERTY,
     KC_COLEMAK,
-    	  KC_COLEMAKDH,
+    KC_COLEMAKDH,
     KC_LOWER,
     KC_RAISE,
     KC_ADJUST,
